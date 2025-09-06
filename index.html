@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Green Fields Farm Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <img src="b.jpg" alt="Farm Background" class="background" />
+
+  <!-- Language Selector -->
+  <div id="language-selector">
+  <select id="language-select" onchange="setLanguage(this.value)">
+    <option value="auto">Auto Detect</option>
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="ta">தமிழ்</option>
+    <option value="te">తెలుగు</option>
+    <option value="kn">ಕನ್ನಡ</option>
+    <option value="ml">മലയാളം</option>
+    <option value="ur">اردو</option>
+    <option value="mr">मराठी</option>
+  </select>
+</div>
+
+
+  <header>
+    <h1 data-i18n="title">🌾 Welcome to Farmer Online Marketing</h1>
+    <br />
+    <h2 data-i18n="subtitle">Choose how you'd like to access the platform:</h2>
+  </header>
+
+  <section class="split-sections">
+    <div class="section user">
+      <h2 data-i18n="customerTitle">👩‍🌾 Customer Login</h2>
+      <p data-i18n="customerDesc">
+        Browse fresh farm products, place orders, and support local farmers.
+      </p>
+      <a href="user.html" class="btn" data-i18n="customerBtn">Go to User Login Page</a>
+    </div>
+
+    <div class="section farmer">
+      <h2 data-i18n="farmerTitle">🚜 Farmer Login </h2>
+      <p data-i18n="farmerDesc">
+        Manage your products, connect with buyers, and grow your online presence.
+      </p>
+      <a href="farmer.html" class="btn" data-i18n="farmerBtn">Go to Farmer Login Page</a>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer">© 2025 Green Fields Farm. All rights reserved.</p>
+  </footer>
+
+  <script src="translate.js"></script>
+</body>
+</html>
