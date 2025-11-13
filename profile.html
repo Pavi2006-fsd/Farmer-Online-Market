@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url(1000114771.jpg);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .profile-box {
+      background: rgba(255, 255, 255, 0.95); /* Slight transparency for better contrast */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      object-fit: cover;
+      background-color: #ddd;
+    }
+    p {
+      margin: 8px 0;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    button:hover {
+      background-color:purple;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-box">
+    <img id="profilePhoto" src="default.jpg" alt="Profile Photo">
+    <h2 id="profileName">Name</h2>
+    <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+    <p><strong>District:</strong> <span id="profileDistrict">-</span></p>
+    <p><strong>Phone:</strong> <span id="profilePhone">-</span></p>
+    <p><strong>Location:</strong> <span id="profileLocation">-</span></p>
+    <button onclick="location.href='ve1.html'">Go to Next Page</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get data from localStorage
+      const name = localStorage.getItem('userName') || 'Name';
+      const email = localStorage.getItem('userEmail') || '-';
+      const district = localStorage.getItem('userDistrict') || '-';
+      const phone = localStorage.getItem('userPhone') || '-';
+      const location = localStorage.getItem('userLocation') || '-';
+      const photo = localStorage.getItem('userPhoto');
+
+      // Update profile content
+      document.getElementById('profileName').innerText = name;
+      document.getElementById('profileEmail').innerText = email;
+      document.getElementById('profileDistrict').innerText = district;
+      document.getElementById('profilePhone').innerText = phone;
+      document.getElementById('profileLocation').innerText = location;
+
+      // Set profile photo if available
+      const profilePhoto = document.getElementById('profilePhoto');
+      if (photo && photo.trim() !== "") {
+        profilePhoto.src = photo;
+      } else {
+        profilePhoto.src = 'default.jpg'; 
+      }
+
+    
+    });
+  </script>
+  
+</body>
+</html>

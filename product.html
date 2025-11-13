@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Products & Pricing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f8f8f8;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2f6627;
+    }
+
+    .product-list {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .product-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom:dodgerblue 1px solid;
+      padding: 10px 0;
+    }
+
+    .product-item:last-child {
+      border-bottom: none;
+    }
+
+    .product-name {
+      font-weight: bold;
+    }
+
+    .price {
+      color: #27ae60;
+      cursor: pointer;
+    }
+    .price:hover{
+      color:chocolate;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Farm Products & Pricing</h1>
+
+  <div class="product-list">
+    <div class="product-item">
+      <span class="product-name">Fresh Eggs (dozen)</span>
+      <span class="price">₹120</span>
+    </div>
+    <div class="product-item">
+      <span class="product-name">Organic Tomatoes (1kg)</span>
+      <span class="price">₹60</span>
+    </div>
+    <div class="product-item">
+      <span class="product-name">Cow Milk (1 liter)</span>
+      <span class="price">₹50</span>
+    </div>
+    <div class="product-item">
+      <span class="product-name">Honey (500ml)</span>
+      <span class="price">₹250</span>
+    </div>
+    <div class="product-item">
+      <span class="product-name">Seasonal Vegetables Box</span>
+      <span class="price">₹300</span>
+    </div>
+  </div>
+
+</body>
+</html>
