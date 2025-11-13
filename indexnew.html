@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Online Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family:roboto}
+    nav {
+      background: rgba(46, 125, 50, 0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      color: white;
+    }
+    .logo { font-size: 24px; font-weight: bold; }
+    ul { list-style: none; display: flex; align-items: center; }
+    ul li { margin: 0 15px; }
+    ul li a { text-decoration: none; color: white; font-weight: 500; transition: color 0.3s; }
+    ul li a:hover { color: #c5e1a5; }
+    select {
+      padding: 6px;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      color: #2e7d32;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(70%);
+    }
+    .hero-content {
+      z-index: 1;
+      color: white;
+      padding: 20px;
+      max-width: 700px;
+    }
+    .login-btn {
+      background:deepskyblue;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 50px;  /* Makes the button round */
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-btn:hover {
+      background:deeppink;
+      transform: scale(1.05);
+    }
+    a{
+           text-decoration: none;
+    }
+
+    .hero-content h1 { font-size: 52px; margin-bottom: 20px; text-shadow: 3px 3px 6px rgba(0,0,0,0.7); }
+    .hero-content p { font-size: 20px; line-height: 1.6; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+    section { padding: 80px 60px; text-align: center; }
+    .section-heading { font-size: 36px; margin-bottom: 20px; color: #2e7d32; }
+    .section-content { font-size: 18px; color: #444; max-width: 900px; margin: auto; line-height: 1.6; }
+    footer { background: #1b5e20; color: white; text-align: center; padding: 15px; }
+</style>
+<body>
+  <nav>
+    <div class="logo" data-lang="logo">🌾 Farmer Online Market</div>
+    <ul>
+      <li><a href="#home" data-lang="navHome">Home</a></li>
+      <li><a href="#about" data-lang="navAbout">About</a></li>
+      <li><a href="#services" data-lang="navServices">Services</a></li>
+      <li><a href="#market" data-lang="navMarket">Market</a></li>
+      <li><a href="#contact" data-lang="navContact">Contact</a></li>
+      <li>
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="ta">தமிழ்(Tamil)</option>
+          <option value="te">తెలుగు(Telugu)</option>
+          <option value="hi">हिन्दी(Hindi)</option>
+          <option value="kn">ಕನ್ನಡ(Kannada)</option>
+        </select>
+      </li>
+     <button class="login-btn" data-lang="login">
+      <span>👤</span><a href="login.html">LOGIN</a></button>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <img src="backk.jpg" alt="">
+    <div class="hero-content">
+      <h1 data-lang="welcome">Welcome to Farmer Online Portal</h1>
+      <p data-lang="subtitle">Connecting farmers, buyers, and the market through innovation and technology.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-heading" data-lang="aboutHeading">About Us</h2>
+    <p class="section-content" data-lang="aboutContent">
+      Farmer Online is a digital platform designed to empower farmers by connecting them directly with buyers,
+      providing market insights, and sharing the latest agricultural innovations.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-heading" data-lang="servicesHeading">Our Services</h2>
+    <p class="section-content" data-lang="servicesContent">
+      🌱 Buy & Sell Agricultural Products<br>
+      💧 Weather Updates & Smart Farming Tips<br>
+      📊 Real-Time Market Price Dashboard<br>
+      🚜 Equipment Rentals and Guidance
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-heading" data-lang="contactHeading">Contact Us</h2>
+    <p class="section-content" data-lang="contactContent">
+      📍 Address: 123 Green Field Road, Tamil Nadu<br>
+      📞 Phone: +91 98765 43210<br>
+      📧 Email: info@farmeronline.com
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span data-lang="footer">© 2025 Farmer Online Project | Designed for Farmers</span>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        logo: "🌾 Farmer Online",
+        navHome: "Home", navAbout: "About", navServices: "Services", navMarket: "Market", navContact: "Contact",
+        welcome: "Welcome to Farmer Online Portal",
+        subtitle: "Connecting farmers, buyers, and the market through innovation and technology.",
+        aboutHeading: "About Us",
+        aboutContent: "Farmer Online is a digital platform designed to empower farmers by connecting them directly with buyers, providing market insights, and sharing the latest agricultural innovations.",
+        servicesHeading: "Our Services",
+        servicesContent: "🌱 Buy & Sell Agricultural Products<br>💧 Weather Updates & Smart Farming Tips<br>📊 Real-Time Market Price Dashboard<br>🚜 Equipment Rentals and Guidance",
+        contactHeading: "Contact Us",
+        contactContent: "📍 Address: 123 Green Field Road, Tamil Nadu<br>📞 Phone: +91 98765 43210<br>📧 Email: info@farmeronline.com",
+        footer: "© 2025 Farmer Online Project | Designed for Farmers"
+      },
+      ta: {
+        logo: "🌾 விவசாயர் ஆன்லைன்",
+        navHome: "முகப்பு", navAbout: "எங்களை பற்றி", navServices: "சேவைகள்", navMarket: "சந்தை", navContact: "தொடர்பு",
+        welcome: "விவசாயர் ஆன்லைன் போர்டலுக்கு வரவேற்கிறோம்",
+        subtitle: "விவசாயிகள், வாடிக்கையாளர்கள் மற்றும் சந்தையை தொழில்நுட்பத்தின் மூலம் இணைக்கிறது.",
+        aboutHeading: "எங்களை பற்றி",
+        aboutContent: "விவசாயர் ஆன்லைன் என்பது விவசாயிகளை வாடிக்கையாளர்களுடன் நேரடியாக இணைத்து, சந்தைத் தகவல்கள் மற்றும் வேளாண் புதுமைகளை பகிர்வதற்கான ஒரு டிஜிட்டல் தளம் ஆகும்.",
+        servicesHeading: "எங்கள் சேவைகள்",
+        servicesContent: "🌱 வேளாண் பொருட்களை வாங்கவும் விற்கவும்<br>💧 வானிலை மற்றும் நுண்ணறிவு விவசாய தகவல்கள்<br>📊 நேரடி சந்தை விலை புதுப்பிப்பு<br>🚜 உபகரண வாடகை மற்றும் ஆலோசனை",
+        contactHeading: "தொடர்பு கொள்ள",
+        contactContent: "📍 முகவரி: 123 கிரீன் ஃபீல்ட் சாலை, தமிழ்நாடு<br>📞 தொலைபேசி: +91 98765 43210<br>📧 மின்னஞ்சல்: info@farmeronline.com",
+        footer: "© 2025 விவசாயர் ஆன்லைன் | விவசாயிகளுக்காக வடிவமைக்கப்பட்டது"
+      },
+      te: {
+        logo: "🌾 రైతు ఆన్‌లైన్",
+        navHome: "హోమ్", navAbout: "మా గురించి", navServices: "సేవలు", navMarket: "మార్కెట్", navContact: "సంప్రదించండి",
+        welcome: "రైతు ఆన్‌లైన్ పోర్టల్‌కు స్వాగతం",
+        subtitle: "రైతులు, కొనుగోలుదారులు మరియు మార్కెట్‌ను సాంకేతికత ద్వారా అనుసంధానిస్తుంది.",
+        aboutHeading: "మా గురించి",
+        aboutContent: "రైతు ఆన్‌లైన్ రైతులను నేరుగా కొనుగోలుదారులతో అనుసంధానించే డిజిటల్ వేదిక.",
+        servicesHeading: "మా సేవలు",
+        servicesContent: "🌱 వ్యవసాయ ఉత్పత్తులు కొనండి & అమ్మండి<br>💧 వాతావరణ నవీకరణలు<br>📊 మార్కెట్ ధర డ్యాష్‌బోర్డ్<br>🚜 పరికరాల అద్దె & సలహాలు",
+        contactHeading: "సంప్రదించండి",
+        contactContent: "📍 చిరునామా: 123 గ్రీన్ ఫీల్డ్ రోడ్, తమిళనాడు<br>📞 ఫోన్: +91 98765 43210<br>📧 ఇమెయిల్: info@farmeronline.com",
+        footer: "© 2025 రైతు ఆన్‌లైన్ | రైతుల కోసం రూపొందించబడింది"
+      },
+      hi: {
+        logo: "🌾 किसान ऑनलाइन",
+        navHome: "होम", navAbout: "हमारे बारे में", navServices: "सेवाएं", navMarket: "बाज़ार", navContact: "संपर्क करें",
+        welcome: "किसान ऑनलाइन पोर्टल में आपका स्वागत है",
+        subtitle: "किसानों, खरीदारों और बाज़ार को तकनीक के माध्यम से जोड़ना।",
+        aboutHeading: "हमारे बारे में",
+        aboutContent: "किसान ऑनलाइन एक डिजिटल प्लेटफ़ॉर्म है जो किसानों को सीधे खरीदारों से जोड़ता है और नवीनतम कृषि नवाचार साझा करता है।",
+        servicesHeading: "हमारी सेवाएं",
+        servicesContent: "🌱 कृषि उत्पाद खरीदें और बेचें<br>💧 मौसम और स्मार्ट खेती सुझाव<br>📊 वास्तविक समय बाज़ार मूल्य<br>🚜 उपकरण किराया और सलाह",
+        contactHeading: "संपर्क करें",
+        contactContent: "📍 पता: 123 ग्रीन फील्ड रोड, तमिलनाडु<br>📞 फ़ोन: +91 98765 43210<br>📧 ईमेल: info@farmeronline.com",
+        footer: "© 2025 किसान ऑनलाइन | किसानों के लिए बनाया गया"
+      },
+      kn: {
+        logo: "🌾 ರೈತ ಆನ್ಲೈನ್",
+        navHome: "ಮುಖಪುಟ", navAbout: "ನಮ್ಮ ಬಗ್ಗೆ", navServices: "ಸೇವೆಗಳು", navMarket: "ಮಾರುಕಟ್ಟೆ", navContact: "ಸಂಪರ್ಕಿಸಿ",
+        welcome: "ರೈತ ಆನ್ಲೈನ್ ಪೋರ್ಟಲ್‌ಗೆ ಸುಸ್ವಾಗತ",
+        subtitle: "ರೈತರು, ಖರೀದಿದಾರರು ಮತ್ತು ಮಾರುಕಟ್ಟೆಯನ್ನು ತಂತ್ರಜ್ಞಾನದಿಂದ ಸಂಪರ್ಕಿಸುತ್ತಿದೆ.",
+        aboutHeading: "ನಮ್ಮ ಬಗ್ಗೆ",
+        aboutContent: "ರೈತ ಆನ್ಲೈನ್ ರೈತರನ್ನು ನೇರವಾಗಿ ಖರೀದಿದಾರರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುವ ಡಿಜಿಟಲ್ ವೇದಿಕೆ.",
+        servicesHeading: "ನಮ್ಮ ಸೇವೆಗಳು",
+        servicesContent: "🌱 ಕೃಷಿ ಉತ್ಪನ್ನಗಳನ್ನು ಖರೀದಿಸಿ ಮತ್ತು ಮಾರಾಟ ಮಾಡಿ<br>💧 ಹವಾಮಾನ ನವೀಕರಣಗಳು<br>📊 ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಫಲಕ<br>🚜 ಸಾಧನ ಬಾಡಿಗೆ ಮತ್ತು ಸಲಹೆ",
+        contactHeading: "ಸಂಪರ್ಕಿಸಿ",
+        contactContent: "📍 ವಿಳಾಸ: 123 ಗ್ರೀನ್ ಫೀಲ್ಡ್ ರಸ್ತೆ, ತಮಿಳುನಾಡು<br>📞 ಫೋನ್: +91 98765 43210<br>📧 ಇಮೇಲ್: info@farmeronline.com",
+        footer: "© 2025 ರೈತ ಆನ್ಲೈನ್ | ರೈತರಿಗೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ"
+      }
+    };
+
+    const elements = document.querySelectorAll("[data-lang]");
+    document.getElementById("languageSelect").addEventListener("change", function() {
+      const lang = this.value;
+      elements.forEach(el => {
+        const key = el.getAttribute("data-lang");
+        el.innerHTML = translations[lang][key];
+      });
+    });
+  </script>
+
+</body>
+</html>
