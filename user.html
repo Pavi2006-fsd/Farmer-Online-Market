@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url(1000114772.jpg);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    #language-selector {
+      margin-bottom: 15px;
+      width: 350px;
+      text-align: right;
+    }
+    #language-select {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+    #loginForm {
+      background: #fff;
+      padding: 30px 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 350px;
+      width: 100%;
+    }
+    #loginForm input[type="text"],
+    #loginForm input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    #loginForm button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #loginForm button:hover {
+      background:deepskyblue;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Selector -->
+  <div id="language-selector">
+    <select id="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ml">മലയാളം</option>
+      <option value="ur">اردو</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </div>
+
+  <h2 data-i18n="loginTitle">User Login Page</h2>
+  <form id="loginForm">
+    <input type="text" id="name" required data-i18n-placeholder="namePlaceholder" placeholder="Name" /><br />
+    <input type="email" id="email" required data-i18n-placeholder="emailPlaceholder" placeholder="Email" /><br />
+    <input type="text" id="district" data-i18n-placeholder="districtPlaceholder" placeholder="District" /><br />
+    <input type="text" id="phone" data-i18n-placeholder="phonePlaceholder" placeholder="Phone" /><br />
+    <input type="text" id="location" data-i18n-placeholder="locationPlaceholder" placeholder="Location" /><br />
+    <input type="text" id="photo" data-i18n-placeholder="photoPlaceholder" placeholder="Photo URL" /><br />
+    <button type="submit" data-i18n="saveBtn">Save & View Profile</button>
+  </form>
+
+  <script>
+    
+    let translations = {};
+    const LANG_KEY = 'selectedLanguage';
+
+    function setLanguage(lang) {
+      fetch('translate2.json')
+        .then(response => response.json())
+        .then(data => {
+          if (!data[lang]) lang = 'en'; // fallback to English if lang not found
+          translations = data[lang];
+          updateText();
+          localStorage.setItem(LANG_KEY, lang);
+          updateDropdown(lang);
+        })
+        .catch(err => {
+          console.error("Error loading translations:", err);
+        });
+    }
+
+    function updateText() {
+      // Update elements with text content
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (translations[key]) elem.textContent = translations[key];
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n-placeholder');
+        if (translations[key]) elem.setAttribute('placeholder', translations[key]);
+      });
+    }
+
+    function updateDropdown(lang) {
+      const select = document.getElementById('language-select');
+      if (select) select.value = lang;
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Save form data to localStorage
+      localStorage.setItem('userName', document.getElementById('name').value);
+      localStorage.setItem('userEmail', document.getElementById('email').value);
+      localStorage.setItem('userDistrict', document.getElementById('district').value);
+      localStorage.setItem('userPhone', document.getElementById('phone').value);
+      localStorage.setItem('userLocation', document.getElementById('location').value);
+      localStorage.setItem('userPhoto', document.getElementById('photo').value);
+
+      // Redirect to profile page
+      window.location.href = 'profile.html';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem(LANG_KEY) || 'en';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
