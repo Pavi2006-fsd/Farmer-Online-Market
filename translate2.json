@@ -1,0 +1,72 @@
+{
+  "en": {
+    "loginTitle": "User Login Page",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "districtPlaceholder": "District",
+    "phonePlaceholder": "Phone",
+    "locationPlaceholder": "Location",
+    "photoPlaceholder": "Photo URL",
+    "saveBtn": "Save & View Profile"
+  },
+  "hi": {
+    "loginTitle": "यूज़र लॉगिन पेज",
+    "namePlaceholder": "नाम",
+    "emailPlaceholder": "ईमेल",
+    "districtPlaceholder": "ज़िला",
+    "phonePlaceholder": "फ़ोन",
+    "locationPlaceholder": "स्थान",
+    "photoPlaceholder": "फ़ोटो URL",
+    "saveBtn": "सहेजें और प्रोफ़ाइल देखें"
+  },
+  "ta": {
+    "loginTitle": "பயனர் உள்நுழைவு பக்கம்",
+    "namePlaceholder": "பெயர்",
+    "emailPlaceholder": "மின்னஞ்சல்",
+    "districtPlaceholder": "மாவட்டம்",
+    "phonePlaceholder": "தொலைபேசி",
+    "locationPlaceholder": "இடம்",
+    "photoPlaceholder": "புகைப்பட URL",
+    "saveBtn": "சேமி & சுயவிவரத்தை காண்க"
+  },
+  "te": {
+    "loginTitle": "వినియోగదారు లాగిన్ పేజీ",
+    "namePlaceholder": "పేరు",
+    "emailPlaceholder": "ఇమెయిల్",
+    "districtPlaceholder": "జిల్లా",
+    "phonePlaceholder": "ఫోన్",
+    "locationPlaceholder": "స్థానం",
+    "photoPlaceholder": "ఫోటో URL",
+    "saveBtn": "సేవ్ చేసి ప్రొఫైల్ చూడండి"
+  },
+  "ml": {
+    "loginTitle": "ഉപയോക്തൃ ലോഗിൻ പേജ്",
+    "namePlaceholder": "പേര്",
+    "emailPlaceholder": "ഇമെയിൽ",
+    "districtPlaceholder": "ജില്ല",
+    "phonePlaceholder": "ഫോൺ",
+    "locationPlaceholder": "സ്ഥലം",
+    "photoPlaceholder": "ഫോട്ടോ URL",
+    "saveBtn": "സംരക്ഷിച്ച് പ്രൊഫൈൽ കാണുക"
+  },
+  "ur": {
+    "loginTitle": "یوزر لاگ ان صفحہ",
+    "namePlaceholder": "نام",
+    "emailPlaceholder": "ای میل",
+    "districtPlaceholder": "ضلع",
+    "phonePlaceholder": "فون",
+    "locationPlaceholder": "مقام",
+    "photoPlaceholder": "تصویر URL",
+    "saveBtn": "محفوظ کریں اور پروفائل دیکھیں"
+  },
+  "mr": {
+    "loginTitle": "वापरकर्ता लॉगिन पृष्ठ",
+    "namePlaceholder": "नाव",
+    "emailPlaceholder": "ईमेल",
+    "districtPlaceholder": "जिल्हा",
+    "phonePlaceholder": "फोन",
+    "locationPlaceholder": "स्थान",
+    "photoPlaceholder": "फोटो URL",
+    "saveBtn": "जतन करा आणि प्रोफाइल पहा"
+  }
+}
