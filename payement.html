@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - Farmer Online Market</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #27ae60;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .btn:hover {
+      background: #1e8449;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .back a {
+      color: #27ae60;
+      text-decoration: none;
+    }
+
+    .back a:hover {
+      text-decoration: underline;
+    }
+
+    .total {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #e67e22;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Payment Details 💳</h2>
+    <div class="total">Total Amount: ₹<span id="cartTotal"></span></div>
+
+    <form id="paymentForm">
+      <label>Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="example@email.com" required>
+
+      <label>Payment Method:</label>
+      <select id="method" required>
+        <option value="">-- Select Payment Method --</option>
+        <option value="card">Credit / Debit Card</option>
+        <option value="upi">UPI (Google Pay / PhonePe)</option>
+        <option value="cod">Cash on Delivery</option>
+      </select>
+
+      <div id="cardDetails" style="display:none;">
+        <label>Card Number:</label>
+        <input type="text" maxlength="16" placeholder="1234 5678 9012 3456">
+
+        <label>Expiry Date:</label>
+        <input type="month">
+
+        <label>CVV:</label>
+        <input type="password" maxlength="3" placeholder="123">
+      </div>
+
+      <div id="upiDetails" style="display:none;">
+        <label>UPI ID:</label>
+        <input type="text" placeholder="example@upi">
+      </div>
+
+      <button class="btn" type="submit">Pay Now</button>
+    </form>
+
+    <div class="back">
+      <a href="ve1.html">← Back to Cart</a>
+    </div>
+  </div>
+
+  <script>
+    const methodSelect = document.getElementById('method');
+    const cardDetails = document.getElementById('cardDetails');
+    const upiDetails = document.getElementById('upiDetails');
+    const form = document.getElementById('paymentForm');
+    const totalDisplay = document.getElementById('totalAmount');
+
+    // Show total from localStorage
+    const total = localStorage.getItem('total');
+    if (total) totalDisplay.textContent = total;
+
+    // Change payment method fields
+    methodSelect.addEventListener('change', () => {
+      cardDetails.style.display = methodSelect.value === 'card' ? 'block' : 'none';
+      upiDetails.style.display = methodSelect.value === 'upi' ? 'block' : 'none';
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✅ Payment successful! Thank you for shopping with Farmer Online Market.');
+      localStorage.removeItem('cart');
+      localStorage.removeItem('total');
+      window.location.href = 've1.html';
+    });
+  </script>
+</body>
+</html>
